@@ -29,9 +29,16 @@ public class OccurenciesGetter implements IOccurenciesGetter {
         fillSentenseQueueTask.join();
         try {
             searchWordsInSentenseThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            searchWordsInSentenseThread.interrupt();
+        }
+        try {
             savingThread.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
+            savingThread.interrupt();
         }
+
     }
 }
