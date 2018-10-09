@@ -36,10 +36,8 @@ public class SaveFoundSentensesThread extends Thread {
     @Override
     public void run() {
         clearResultFile(pathToResultFile);
+        try (FileWriter writer = new FileWriter(pathToResultFile, true)){
 
-        FileWriter writer;
-        try {
-            writer = new FileWriter(pathToResultFile, true);
             System.out.println("start save incoming sentences");
             while (!referenceTask.isTaskDone()) {
                 String sentenceText = resultSentenses.poll();
@@ -48,7 +46,6 @@ public class SaveFoundSentensesThread extends Thread {
                 }
             }
             System.out.println("FINISH save incoming sentences");
-            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
