@@ -8,17 +8,17 @@ import java.util.concurrent.TimeUnit;
 
 
 public class Main {
-    private static final String pathToFolder = "M:\\Source\\Inno\\LongTermWork1\\testSet\\";
+    private static final String PATH_TO_FOLDER = "M:\\Source\\Inno\\LongTermWork1\\testSet\\";
     private static final String pathToResult = "M:\\Source\\Inno\\LongTermWork1\\result.txt";
 
     public static String[] getFIleNames() {
-        File folder = new File(pathToFolder);
+        File folder = new File(PATH_TO_FOLDER);
         File[] listOfFiles = folder.listFiles();
         List<String> results = new ArrayList<>();
 
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
-                results.add("file:" + pathToFolder +  listOfFiles[i].getName());
+                results.add("file:" + PATH_TO_FOLDER +  listOfFiles[i].getName());
             }
         }
         return results.toArray(new String[0]);
