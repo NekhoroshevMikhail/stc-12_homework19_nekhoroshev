@@ -26,6 +26,7 @@ public class Main {
 
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
+        int i = 0;
         IOccurenciesGetter getter = new OccurenciesGetter();
         getter.getOccurencies(getFIleNames(),new String[] {"starter", "smarter"}, pathToResult);
         long elapsed = System.currentTimeMillis() - startTime;
